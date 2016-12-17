@@ -1,0 +1,20 @@
+.jssora15l, .jssora15r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 20px;
+    height: 38px;
+    cursor: pointer;
+    background: url(../img/a15.png) no-repeat;
+    overflow: hidden;
+}
+.jssora15l { background-position: -20px -41px; }
+.jssora15r { background-position: -80px -41px; }
+.jssora15l:hover { background-position: -140px -41px; }
+.jssora15r:hover { background-position: -200px -41px; }
+.jssora15l.jssora15ldn { background-position: -260px -41px; }
+.jssora15r.jssora15rdn { background-position: -320px -41px; }
+
+.jssora15l.jssora15lds { background-position: -20px -41px; opacity: .3; pointer-events: none; }
+.jssora15r.jssora15rds { background-position: -80px -41px; opacity: .3; pointer-events: none; }
+

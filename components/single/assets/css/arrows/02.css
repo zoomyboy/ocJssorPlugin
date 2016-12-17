@@ -1,0 +1,20 @@
+.jssora02l, .jssora02r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    background: url(../img/a02.png) no-repeat;
+    overflow: hidden;
+}
+.jssora02l { background-position: -3px -33px; }
+.jssora02r { background-position: -63px -33px; }
+.jssora02l:hover { background-position: -123px -33px; }
+.jssora02r:hover { background-position: -183px -33px; }
+.jssora02l.jssora02ldn { background-position: -3px -33px; }
+.jssora02r.jssora02rdn { background-position: -63px -33px; }
+
+.jssora02l.jssora02lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+.jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+
