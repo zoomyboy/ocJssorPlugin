@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Jssor
+
+# Model Form Field configuration
+form: $/zoomyboy/jssor/models/jssor/fields.yaml
+
+# Model Class name
+modelClass: Zoomyboy\Jssor\Models\Jssor
+
+# Default redirect location
+defaultRedirect: zoomyboy/jssor/jssor
+
+# Create page
+create:
+    title: Create Jssor
+    redirect: zoomyboy/jssor/jssor/update/:id
+    redirectClose: zoomyboy/jssor/jssor
+
+# Update page
+update:
+    title: Edit Jssor
+    redirect: zoomyboy/jssor/jssor
+    redirectClose: zoomyboy/jssor/jssor
+
+# Preview page
+preview:
+    title: Preview Jssor

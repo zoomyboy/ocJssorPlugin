@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Titel
+        required: true
+    images:
+        label: Bilder
+        type: fileupload
+        mode: image
+        fileTypes: png,jpg
+
