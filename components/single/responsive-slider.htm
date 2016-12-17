@@ -1,0 +1,19 @@
+/*responsive code begin*/
+/*you can remove responsive code if you don't want the slider scales while window resizing*/
+function ScaleSlider() {
+	var element = jssor_1_slider.$Elmt.parentNode;
+	var paddingLeft = parseInt($(element).css('padding-left').replace('px', ''));
+	var paddingRight = parseInt($(element).css('padding-right').replace('px', ''));
+	var refSize = element.clientWidth - paddingLeft - paddingRight;
+	if (refSize) {
+		jssor_1_slider.$ScaleWidth(refSize);
+	}
+	else {
+		window.setTimeout(ScaleSlider, 30);
+	}
+}
+ScaleSlider();
+$(window).bind("load", ScaleSlider);
+$(window).bind("resize", ScaleSlider);
+$(window).bind("orientationchange", ScaleSlider);
+/*responsive code end*/
