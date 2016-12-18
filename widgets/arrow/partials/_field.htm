@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="radio custom-radio">
+			<input type="radio" id="noarrow" name="<?php echo $name; ?>" value="0" <?php if($value == 0): ?> checked <?php endif; ?>>
+			<label for="noarrow">Kein</label>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<?php foreach($arrows as $arrow): ?>
+		<div class="col-sm-6 col-md-3">
+			<div class="radio custom-radio">
+				<input type="radio" id="jssor<?php echo $arrow->id; ?>" name="<?php echo $name; ?>" value="<?php echo $arrow->id; ?>" <?php if($value == $arrow->id): ?> checked <?php endif; ?>>
+				<label for="jssor<?php echo $arrow->id; ?>">
+					<div style="background-color: black;">
+						<img src="<?php echo $arrow->imagePath; ?>" class="img-responsive">
+					</div>
+				</label>
+			</div>
+		</div>
+	<?php endforeach; ?>
+</div>

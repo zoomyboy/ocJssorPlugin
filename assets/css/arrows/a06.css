@@ -5,7 +5,7 @@
     width: 45px;
     height: 45px;
     cursor: pointer;
-    background: url(../img/a06.png) no-repeat;
+    background: url(../../img/a06.png) no-repeat;
     overflow: hidden;
 }
 .jssora06l { background-position: -8px -38px; }

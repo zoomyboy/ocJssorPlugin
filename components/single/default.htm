@@ -28,45 +28,11 @@
 </script>
 
 {% endput %}
-    <!-- #region Jssor Slider Begin -->
-    <!-- Generator: Jssor Slider Maker -->
-    <!-- This code works with jquery library. -->
-    <style>
-        /* jssor slider arrow navigator skin 05 css */
-        /*
-        .jssora05l                  (normal)
-        .jssora05r                  (normal)
-        .jssora05l:hover            (normal mouseover)
-        .jssora05r:hover            (normal mouseover)
-        .jssora05l.jssora05ldn      (mousedown)
-        .jssora05r.jssora05rdn      (mousedown)
-        .jssora05l.jssora05lds      (disabled)
-        .jssora05r.jssora05rds      (disabled)
-        */
-        .jssora05l, .jssora05r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            background: url('/plugins/zoomyboy/jssor/components/single/assets/img/a17.png') no-repeat;
-            overflow: hidden;
-        }
-        .jssora05l { background-position: -10px -40px; }
-        .jssora05r { background-position: -70px -40px; }
-        .jssora05l:hover { background-position: -130px -40px; }
-        .jssora05r:hover { background-position: -190px -40px; }
-        .jssora05l.jssora05ldn { background-position: -250px -40px; }
-        .jssora05r.jssora05rdn { background-position: -310px -40px; }
-        .jssora05l.jssora05lds { background-position: -10px -40px; opacity: .3; pointer-events: none; }
-        .jssora05r.jssora05rds { background-position: -70px -40px; opacity: .3; pointer-events: none; }
-    </style>
     <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: 380px; overflow: hidden; visibility: hidden; background-color: #24262e;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-            <div style="position:absolute;display:block;background:url('/plugins/zoomyboy/jssor/components/single/assets/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+            <div style="position:absolute;display:block;background:url('/plugins/zoomyboy/jssor/assets/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 380px; overflow: hidden;">
 			{% for img in __SELF__.model().images %}
@@ -75,9 +41,11 @@
 				</div>
 			{% endfor %}
         </div>
+		{% if (__SELF__.model().hasArrow()) %}
         <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora05l" style="top:158px;left:8px;width:40px;height:40px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
+		<span data-u="arrowleft" class="{{ __SELF__.model().arrow.leftClassName }}" style="{{ __SELF__.model().arrow.cssLeft }}" data-autocenter="2"></span>
+		<span data-u="arrowright" class="{{ __SELF__.model().arrow.rightClassName }}" style="{{ __SELF__.model().arrow.cssRight }}" data-autocenter="2"></span>
+		{% endif %}
     </div>
     <!-- #endregion Jssor Slider End -->
 

@@ -34,6 +34,12 @@ class Plugin extends PluginBase
 
     }
 
+	public function registerFormWidgets() {
+		return [
+			'Zoomyboy\Jssor\Widgets\Arrow' => 'arrow'
+		];
+	}
+
     /**
      * Boot method, called right before the request route.
      *

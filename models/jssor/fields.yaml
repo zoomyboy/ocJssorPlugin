@@ -11,4 +11,7 @@ fields:
         type: fileupload
         mode: image
         fileTypes: png,jpg
+    arrow_id:
+        label: Arrow
+        type: arrow
 

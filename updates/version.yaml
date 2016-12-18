@@ -2,3 +2,7 @@
 1.0.2:
     - create_jssors_table
     - create_jssors_table.php
+1.0.3:
+    - create_arrows_table
+    - create_arrows_table.php
+    - ArrowsSeeder.php

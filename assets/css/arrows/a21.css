@@ -5,7 +5,7 @@
     width: 55px;
     height: 55px;
     cursor: pointer;
-    background: url(../img/a21.png) center center no-repeat;
+    background: url(../../img/a21.png) center center no-repeat;
     overflow: hidden;
 }
 .jssora21l { background-position: -3px -33px; }

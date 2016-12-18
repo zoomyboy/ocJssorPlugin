@@ -5,7 +5,7 @@
     width: 30px;
     height: 46px;
     cursor: pointer;
-    background: url(../img/a12.png) no-repeat;
+    background: url(../../img/a12.png) no-repeat;
     overflow: hidden;
 }
 .jssora12l { background-position: -16px -37px; }

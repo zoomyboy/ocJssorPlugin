@@ -15,7 +15,11 @@ class Single extends ComponentBase
     }
 
 	public function onRun() {
-		$this->addJs('components/single/assets/js/jssor.min.js');
+		$model= $this->model();
+		$this->addJs('assets/js/jssor.min.js');
+		if ($model->hasArrow()) {
+			$this->addCss('assets/css/arrows/'.$model->arrow->filename.'.css');
+		}
 	}
 
 	public function model() {
