@@ -6,3 +6,7 @@
     - create_arrows_table
     - create_arrows_table.php
     - ArrowsSeeder.php
+1.0.4:
+    - create_bullets_table
+    - create_bullets_table.php
+    - BulletsSeeder.php

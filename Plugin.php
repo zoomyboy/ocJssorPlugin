@@ -36,7 +36,8 @@ class Plugin extends PluginBase
 
 	public function registerFormWidgets() {
 		return [
-			'Zoomyboy\Jssor\Widgets\Arrow' => 'arrow'
+			'Zoomyboy\Jssor\Widgets\Arrow' => 'arrow',
+			'Zoomyboy\Jssor\Widgets\Bullet' => 'bullet'
 		];
 	}
 

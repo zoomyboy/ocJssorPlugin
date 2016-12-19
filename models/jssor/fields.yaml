@@ -14,4 +14,7 @@ fields:
     arrow_id:
         label: Arrow
         type: arrow
+    bullet_id:
+        label: Bullet
+        type: bullet
 

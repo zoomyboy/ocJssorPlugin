@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="radio custom-radio">
+			<input type="radio" id="nobullet" name="<?php echo $name; ?>" value="0" <?php if($value == 0): ?> checked <?php endif; ?>>
+			<label for="nobullet">Kein</label>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<?php foreach($bullets as $bullet): ?>
+		<div class="col-sm-6 col-md-3">
+			<div class="radio custom-radio">
+				<input type="radio" id="jssorb<?php echo $bullet->id; ?>" name="<?php echo $name; ?>" value="<?php echo $bullet->id; ?>" <?php if($value == $bullet->id): ?> checked <?php endif; ?>>
+				<label for="jssorb<?php echo $bullet->id; ?>">
+					<div style="background-color: black;">
+						<img src="<?php echo $bullet->imagePath; ?>" class="img-responsive">
+					</div>
+				</label>
+			</div>
+		</div>
+	<?php endforeach; ?>
+</div>

@@ -21,7 +21,7 @@ class Jssor extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['title', 'arrow_id'];
+    protected $fillable = ['title', 'arrow_id', 'bullet_id'];
 
     /**
      * @var array Relations
@@ -29,7 +29,8 @@ class Jssor extends Model
     public $hasOne = [];
     public $hasMany = [];
 	public $belongsTo = [
-		'arrow' => 'Zoomyboy\Jssor\Models\Arrow'	
+		'arrow' => 'Zoomyboy\Jssor\Models\Arrow',
+		'bullet' => 'Zoomyboy\Jssor\Models\Bullet'
 	];
 	public $belongsToMany = [];
     public $morphTo = [];
@@ -42,5 +43,9 @@ class Jssor extends Model
 
 	public function hasArrow() {
 		return $this->arrow_id != 0;
+	}
+
+	public function hasBullet() {
+		return $this->bullet_id != 0;
 	}
 }

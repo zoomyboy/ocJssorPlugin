@@ -20,6 +20,9 @@ class Single extends ComponentBase
 		if ($model->hasArrow()) {
 			$this->addCss('assets/css/arrows/'.$model->arrow->filename.'.css');
 		}
+		if ($model->hasBullet()) {
+			$this->addCss('assets/css/bullets/'.$model->bullet->filename.'.css');
+		}
 	}
 
 	public function model() {

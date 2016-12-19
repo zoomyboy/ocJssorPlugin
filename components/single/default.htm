@@ -16,9 +16,16 @@
                 $TransitionsOrder: 1,
                 $ShowLink: true
               },
+				{% if (__SELF__.model().hasArrow()) %}
               $ArrowNavigatorOptions: {
                 $Class: $JssorArrowNavigator$
+              },
+			  	{% endif %}
+				{% if (__SELF__.model().hasBullet()) %}
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
               }
+			  	{% endif %}
             };
 
             var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
@@ -45,6 +52,12 @@
         <!-- Arrow Navigator -->
 		<span data-u="arrowleft" class="{{ __SELF__.model().arrow.leftClassName }}" style="{{ __SELF__.model().arrow.cssLeft }}" data-autocenter="2"></span>
 		<span data-u="arrowright" class="{{ __SELF__.model().arrow.rightClassName }}" style="{{ __SELF__.model().arrow.cssRight }}" data-autocenter="2"></span>
+		{% endif %}
+		{% if (__SELF__.model().hasBullet()) %}
+		<div u="navigator" class="{{ __SELF__.model().bullet.className }}" style="bottom: 16px; right: 10px;" data-autocenter="1">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype"></div>
+        </div>
 		{% endif %}
     </div>
     <!-- #endregion Jssor Slider End -->
