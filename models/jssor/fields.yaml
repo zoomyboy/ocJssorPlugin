@@ -2,19 +2,24 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    title:
-        label: Titel
-        required: true
-    images:
-        label: Bilder
-        type: fileupload
-        mode: image
-        fileTypes: png,jpg
-    arrow_id:
-        label: Arrow
-        type: arrow
-    bullet_id:
-        label: Bullet
-        type: bullet
-
+tabs:
+    defaultTab: General
+    fields:
+        title:
+            label: Titel
+            required: true
+            tab: General
+        images:
+            label: Bilder
+            type: fileupload
+            mode: image
+            fileTypes: png,jpg
+            tab: General
+        arrow_id:
+            label: Arrow
+            type: arrow
+            tab: Arrows
+        bullet_id:
+            label: Bullet
+            type: bullet
+            tab: Bullets
