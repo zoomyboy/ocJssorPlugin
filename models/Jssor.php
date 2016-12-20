@@ -13,6 +13,10 @@ class Jssor extends Model
      */
     public $table = 'zoomyboy_jssor_jssors';
 
+	protected $casts = [
+		'autoplay' => 'boolean',
+	];
+
     /**
      * @var array Guarded fields
      */
@@ -21,7 +25,7 @@ class Jssor extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['title', 'arrow_id', 'bullet_id'];
+    protected $fillable = ['title', 'arrow_id', 'bullet_id', 'autoplay', 'fill_mode', 'interval', 'slide_duration', 'pause', 'backgroundcolor'];
 
     /**
      * @var array Relations
@@ -47,5 +51,13 @@ class Jssor extends Model
 
 	public function hasBullet() {
 		return $this->bullet_id != 0;
+	}
+
+	public function getFillModeOptions() {
+		return [0 => 'Stretch', 1 => 'contain', 2 => 'cover', 4 => 'Actual Size'];
+	}
+
+	public function getPresentPauseAttribute() {
+		return ($this->attributes['pause'] == true) ? 3 : 0;
 	}
 }

@@ -15,10 +15,48 @@ tabs:
             mode: image
             fileTypes: png,jpg
             tab: General
+        autoplay: 
+            label: Autoplay
+            type: checkbox
+            default: true
+            tab: General
+        interval:  
+            label: Interval
+            type: number
+            default: 3000
+            tab: General
+            trigger:
+                action: show
+                field: autoplay
+                condition: checked
+        pause:
+            label: Pause on hover
+            type: checkbox
+            default: true 
+            tab: General
+            trigger:
+                action: show
+                field: autoplay
+                condition: checked
+        backgroundcolor:
+            label: Background Color
+            type: colorpicker
+            tab: General
+            default: ffffff
+        fill_mode:
+            label: Fill-Mode
+            type: radio
+            default: 0
+            tab: General
         arrow_id:
             label: Arrow
             type: arrow
             tab: Arrows
+        slide_duration:
+            type: number
+            label: Slide Duration (with arrow or bullet)
+            tab: General
+            default: 500
         bullet_id:
             label: Bullet
             type: bullet

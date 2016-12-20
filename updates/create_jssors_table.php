@@ -12,8 +12,14 @@ class CreateJssorsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
 			$table->string('title');
+			$table->integer('autoplay')->unsigned();
 			$table->integer('arrow_id')->unsinged();
 			$table->integer('bullet_id')->unsinged();
+			$table->integer('fill_mode')->unsigned();
+			$table->integer('slide_duration')->unsigned();
+			$table->integer('interval')->unsigned();
+			$table->integer('pause')->unsigned();
+			$table->string('backgroundcolor');
             $table->timestamps();
         });
     }
