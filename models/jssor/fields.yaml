@@ -29,15 +29,27 @@ tabs:
                 action: show
                 field: autoplay
                 condition: checked
+
+        use_height_from_component:
+            type: checkbox
+            label: Use height from Component
+            default: true
+        height:
+            type: number
+            label: Height
+            default: 300
+            tab: General
+
+        use_pause_from_component:
+            type: checkbox
+            label: Use pause from Component
+            default: true
         pause:
             label: Pause on hover
             type: checkbox
             default: true 
             tab: General
-            trigger:
-                action: show
-                field: autoplay
-                condition: checked
+
         backgroundcolor:
             label: Background Color
             type: colorpicker

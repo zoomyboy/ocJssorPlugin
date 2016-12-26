@@ -19,6 +19,9 @@ class CreateJssorsTable extends Migration
 			$table->integer('slide_duration')->unsigned();
 			$table->integer('interval')->unsigned();
 			$table->integer('pause')->unsigned();
+			$table->integer('use_pause_from_component')->unsigned();
+			$table->integer('height');
+			$table->integer('use_height_from_component')->unsigned();
 			$table->string('backgroundcolor');
             $table->timestamps();
         });

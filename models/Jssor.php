@@ -15,6 +15,8 @@ class Jssor extends Model
 
 	protected $casts = [
 		'autoplay' => 'boolean',
+		'use_height_from_component' => 'boolean',
+		'use_pause_from_component' => 'boolean'
 	];
 
     /**

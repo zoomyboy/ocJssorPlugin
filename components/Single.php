@@ -5,6 +5,8 @@ use Zoomyboy\Jssor\Models\Jssor as JssorModel;
 
 class Single extends ComponentBase
 {
+	public $height;
+	public $pause;
 
     public function componentDetails()
     {
@@ -16,6 +18,10 @@ class Single extends ComponentBase
 
 	public function onRun() {
 		$model= $this->model();
+
+		$this->height = ($model->use_height_from_component) ? $this->property('height') : $model->height;
+		$this->pause = ($model->use_pause_from_component) ? $this->property('pause') : $model->pause;
+
 		$this->addJs('assets/js/jssor.min.js');
 		if ($model->hasArrow()) {
 			$this->addCss('assets/css/arrows/'.$model->arrow->filename.'.css');
@@ -35,7 +41,17 @@ class Single extends ComponentBase
 			'gallery' => [
 				'title' => 'Galerie',
 				'description' => 'Jssor-Gallery',
-				'type' => 'dropdown'
+				'type' => 'dropdown',
+			],
+			'pause' => [
+				'title' => 'Pause',
+				'description' => 'Specify on which conditions the autoplay (if set) should pause',
+				'type' => 'checkbox'
+			],
+			'height' => [
+				'title' => 'Height',
+				'description' => 'Specify height of the slider',
+				'type' => 'string'
 			]
 		];
     }
