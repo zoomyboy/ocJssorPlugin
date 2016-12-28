@@ -16,7 +16,7 @@ class Single extends ComponentBase
         ];
     }
 
-	public function onRun() {
+	public function onRender() {
 		$model= $this->model();
 
 		$this->height = ($model->use_height_from_component) ? $this->property('height') : $model->height;
@@ -42,6 +42,7 @@ class Single extends ComponentBase
 				'title' => 'Galerie',
 				'description' => 'Jssor-Gallery',
 				'type' => 'dropdown',
+				'placeholder' => 'Nothing'
 			],
 			'pause' => [
 				'title' => 'Pause',
