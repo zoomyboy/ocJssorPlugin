@@ -73,3 +73,10 @@ tabs:
             label: Bullet
             type: bullet
             tab: Bullets
+
+        overlay:
+            type: fileupload
+            mode: image
+            label: Overlay image
+            tab: Overlay
+

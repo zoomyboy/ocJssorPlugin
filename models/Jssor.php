@@ -27,7 +27,7 @@ class Jssor extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['title', 'arrow_id', 'bullet_id', 'autoplay', 'fill_mode', 'interval', 'slide_duration', 'pause', 'backgroundcolor'];
+    protected $fillable = ['title', 'arrow_id', 'bullet_id', 'autoplay', 'fill_mode', 'interval', 'slide_duration', 'pause', 'backgroundcolor', 'overlay'];
 
     /**
      * @var array Relations
@@ -42,7 +42,9 @@ class Jssor extends Model
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
-    public $attachOne = [];
+    public $attachOne = [
+		'overlay' => ['\System\Models\File', 'public' => true]
+	];
 	public $attachMany = [
 		'images' => ['\System\Models\File', 'public' => true]
 	];
@@ -53,6 +55,10 @@ class Jssor extends Model
 
 	public function hasBullet() {
 		return $this->bullet_id != 0;
+	}
+
+	public function hasOverlay() {
+		return $this->overlay() != 0;
 	}
 
 	public function getFillModeOptions() {
