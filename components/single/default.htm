@@ -1,12 +1,12 @@
 {% put scripts %}
 <script type="text/javascript">
 	$(document).ready(function ($) {
-		var jssor_1_SlideshowTransitions = [
+		var jssor_{{ __SELF__.model().id }}_SlideshowTransitions = [
 			{$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
 			{$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
 		];
 
-		var jssor_1_options = {
+		var jssor_{{ __SELF__.model().id }}_options = {
 			$AutoPlay: {%if __SELF__.model().autoplay %}true{%else%}false{%endif%},
 			$Idle: {{ __SELF__.model().interval }},
 			$SlideDuration: {{ __SELF__.model().slide_duration }},
@@ -15,7 +15,7 @@
 			$SlideEasing: $Jease$.$InCirc,
 			$SlideshowOptions: {
 				$Class: $JssorSlideshowRunner$,
-				$Transitions: jssor_1_SlideshowTransitions,
+				$Transitions: jssor_{{  __SELF__.model().id }}_SlideshowTransitions,
 				$TransitionsOrder: 1,
 				$ShowLink: true
 			},
@@ -31,14 +31,14 @@
 			{% endif %}
 		};
 
-		var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+		var jssor_{{  __SELF__.model().id }}_slider = new $JssorSlider$("jssor_{{  __SELF__.model().id }}", jssor_{{  __SELF__.model().id }}_options);
 
-		{% partial "#{__SELF__.alias}::_responsive" %}
+		{% partial "#{__SELF__.alias}::_responsive" id=__SELF__.model().id %}
 	});
 </script>
 {% endput %}
 
-<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: {{ __SELF__.height }}px; overflow: hidden; visibility: hidden; background-color: {{ __SELF__.model().backgroundcolor }};">
+<div id="jssor_{{  __SELF__.model().id }}" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: {{ __SELF__.height }}px; overflow: hidden; visibility: hidden; background-color: {{ __SELF__.model().backgroundcolor }};">
 	<!-- Loading Screen -->
 	<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 		<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
