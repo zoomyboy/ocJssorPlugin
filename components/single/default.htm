@@ -1,74 +1,20 @@
-{% put scripts %}
-<script type="text/javascript">
-	$(document).ready(function ($) {
-		var jssor_{{ __SELF__.model().id }}_SlideshowTransitions = [
-			{$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-			{$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
-		];
+<div class="jssor">
+    {% for key, image in __SELF__.model().images %}
+        <div class="jssor-item {% if key == 0 %} active {% endif %}">
+            {{ image.responsive(__SELF__.model().title) | raw }}
+        </div>
+    {% endfor %}
+    <div class="bullets">
+    {% for key, image in __SELF__.model().images %}
+        <div class="bullet nr-{{ key }} {% if key == 0 %} active {% endif %}"></div>
+    {% endfor %}
+    </div>
 
-		var jssor_{{ __SELF__.model().id }}_options = {
-			$AutoPlay: {%if __SELF__.model().autoplay %}true{%else%}false{%endif%},
-			$Idle: {{ __SELF__.model().interval }},
-			$SlideDuration: {{ __SELF__.model().slide_duration }},
-			$PauseOnHover: {{ __SELF__.model().presentPause }},
-			$FillMode: {{ __SELF__.model().fill_mode }},
-			$SlideEasing: $Jease$.$InCirc,
-			$SlideshowOptions: {
-				$Class: $JssorSlideshowRunner$,
-				$Transitions: jssor_{{  __SELF__.model().id }}_SlideshowTransitions,
-				$TransitionsOrder: 1,
-				$ShowLink: true
-			},
-			{% if (__SELF__.model().hasArrow()) %}
-			$ArrowNavigatorOptions: {
-				$Class: $JssorArrowNavigator$
-			},
-			{% endif %}
-			{% if (__SELF__.model().hasBullet()) %}
-			$BulletNavigatorOptions: {
-				$Class: $JssorBulletNavigator$
-			}
-			{% endif %}
-		};
-
-		var jssor_{{  __SELF__.model().id }}_slider = new $JssorSlider$("jssor_{{  __SELF__.model().id }}", jssor_{{  __SELF__.model().id }}_options);
-
-		{% partial "#{__SELF__.alias}::_responsive" id=__SELF__.model().id %}
-	});
-</script>
-{% endput %}
-
-<div id="jssor_{{  __SELF__.model().id }}" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: {{ __SELF__.height }}px; overflow: hidden; visibility: hidden; background-color: {{ __SELF__.model().backgroundcolor }};">
-	<!-- Loading Screen -->
-	<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-		<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-		<div style="position:absolute;display:block;background:url('/plugins/zoomyboy/jssor/assets/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-	</div>
-
-	<!-- Slides -->
-	<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: {{ __SELF__.height }}px; overflow: hidden;">
-		{% for img in __SELF__.model().images %}
-		<div data-p="147.50">
-			<img data-u="image" src="{{ img.getPath() }}" />
-		</div>
-		{% endfor %}
-	</div>
-
-	<!-- Arrow Navigator -->
-	{% if (__SELF__.model().hasArrow()) %}
-		<span data-u="arrowleft" class="{{ __SELF__.model().arrow.leftClassName }}" style="{{ __SELF__.model().arrow.cssLeft }}" data-autocenter="2"></span>
-		<span data-u="arrowright" class="{{ __SELF__.model().arrow.rightClassName }}" style="{{ __SELF__.model().arrow.cssRight }}" data-autocenter="2"></span>
-	{% endif %}
-
-	<!-- Bullet navigator -->
-	{% if (__SELF__.model().hasBullet()) %}
-		<div u="navigator" class="{{ __SELF__.model().bullet.className }}" style="bottom: 16px; right: 10px;" data-autocenter="1">
-			<div u="prototype"></div>
-		</div>
-	{% endif %}
-
-	<div data-autocenter="3" class="overlay-container">
-		<img src="{{ __SELF__.model().overlay.getPath() }}">
-	</div>
+    {% if __SELF__.model().overlay %}
+    <div class="overlay">
+        <div class="overlay-inner">
+            <img src="{{ __SELF__.model().overlay.getPath() }}">
+        </div>
+    </div>
+    {% endif %}
 </div>
-

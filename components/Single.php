@@ -16,20 +16,12 @@ class Single extends ComponentBase
         ];
     }
 
-	public function onRender() {
-		$model= $this->model();
+    public function onRun() {
+        $model = $this->model();
 
-		$this->height = ($model->use_height_from_component) ? $this->property('height') : $model->height;
-		$this->pause = ($model->use_pause_from_component) ? $this->property('pause') : $model->pause;
-
-		$this->addJs('assets/js/jssor.min.js');
-		if ($model->hasArrow()) {
-			$this->addCss('assets/css/arrows/'.$model->arrow->filename.'.css');
-		}
-		if ($model->hasBullet()) {
-			$this->addCss('assets/css/bullets/'.$model->bullet->filename.'.css');
-		}
-	}
+        $this->addCss('assets/css/jssor.css');
+        $this->addJs('assets/js/jssor.js');
+    }
 
 	public function model() {
 		return JssorModel::where('id', $this->property('gallery'))->first();
